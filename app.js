@@ -3,6 +3,7 @@
 // Build a web server
 const express = require("express");
 const genres = require("./routers/genres"); 
+const customers = require("./routers/customers"); 
 const mongoose = require("mongoose"); 
 
 const app = express();
@@ -15,7 +16,8 @@ mongoose.connect("mongodb://localhost:27017/vidly-express")
 
 // add middleware
 app.use(express.json());
-app.use("/api/genres", genres)
+app.use("/api/genres", genres);
+app.use("/api/customers", customers);
 
 // Listen on port 3000
 const port = process.env.PORT || 3000; // export PORT=4000
