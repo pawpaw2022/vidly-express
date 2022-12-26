@@ -40,7 +40,7 @@ const Movie = mongoose.model(
 function validateMovies(movie) {
     const schema = Joi.object({
       name: Joi.string().min(3).max(255).required(),
-      genreId: Joi.string().required(), 
+      genreId: Joi.objectId().required(), 
       numberInStock: Joi.number().min(0).max(255), 
       dailyRentalRate: Joi.number().min(0).max(255), 
     });
@@ -48,5 +48,17 @@ function validateMovies(movie) {
     return schema.validate(movie, { allowUnknown: true });
   }
   
+function validateUpdatedMovies(movie) {
+    const schema = Joi.object({
+      name: Joi.string().min(3).max(255),
+      genreId: Joi.objectId(), 
+      numberInStock: Joi.number().min(0).max(255), 
+      dailyRentalRate: Joi.number().min(0).max(255), 
+    });
+    return schema.validate(movie, { allowUnknown: true });
+  }
+  
 exports.Movie = Movie; 
 exports.validate = validateMovies; 
+exports.validateUpdate = validateUpdatedMovies; 
+

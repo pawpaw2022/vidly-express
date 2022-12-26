@@ -54,11 +54,23 @@ route.post("/", async (req, res) => {
     },
   });
 
-  // reduce the stock
-  movie.numberInStock--;
-  movie.save();
+  // 2 phase commits
+  try {
+    const session = await mongoose.startSession();
+    await session.withTransaction(async () => {
+      const result = await rental.save();
 
-  rental.save().then((result) => res.send(result));
+      // reduce the stock
+      movie.numberInStock--;
+      movie.save();
+
+      res.send(result);
+    });
+    session.endSession();
+  } catch (err) {
+    return res.status(400).send("Failed to loan out the movie: ", err.message);
+  }
 });
+
 
 module.exports = route;

@@ -3,7 +3,7 @@
 const express = require("express");
 const route = express.Router();
 const mongoose = require("mongoose");
-const { Movie, validate } = require("../models/movie");
+const { Movie, validate, validateUpdate } = require("../models/movie");
 const { Genre } = require("../models/genre");
 
 // Get all the movies
@@ -45,8 +45,8 @@ route.put("/:id", async (req, res) => {
   if (!isValidId) return res.status(400).send("ID is not valid");
 
   // validation
-//   const { error } = validate(req.body);
-//   if (error) return res.status(400).send(error.details[0].message);
+  const { error } = validateUpdate(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
 
   // If movie not found, return 404, otherwise update it
   const movie = await Movie.findById(req.params.id);

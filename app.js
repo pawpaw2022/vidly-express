@@ -1,12 +1,14 @@
 /** @format */
 
 // Build a web server
+const Joi = require("joi");
+Joi.objectId = require('joi-objectid')(Joi);
 const express = require("express");
+const mongoose = require("mongoose"); 
 const genres = require("./routers/genres"); 
 const customers = require("./routers/customers"); 
 const movies = require("./routers/movies"); 
 const rentals = require("./routers/rentals"); 
-const mongoose = require("mongoose"); 
 
 const app = express();
 
