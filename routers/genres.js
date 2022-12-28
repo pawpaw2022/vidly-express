@@ -4,6 +4,8 @@ const express = require("express");
 const route = express.Router();
 const mongoose = require("mongoose");
 const { Genre, validate } = require("../models/genre");
+const auth = require("../middleware/auth");
+const admin = require("../middleware/admin");
 
 // Get all the genres
 route.get("/", (req, res) => {
@@ -18,7 +20,7 @@ route.get("/:id", (req, res) => {
 });
 
 // add a new genre
-route.post("/", (req, res) => {
+route.post("/", auth, (req, res) => {
   // validation
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
@@ -31,7 +33,7 @@ route.post("/", (req, res) => {
 });
 
 // Updating a genre
-route.put("/:id", async (req, res) => {
+route.put("/:id", [auth, admin], async (req, res) => {
   // check if id is valid
   const isValidId = mongoose.Types.ObjectId.isValid(req.params.id);
   if (!isValidId) return res.status(400).send("ID is not valid");
@@ -55,7 +57,7 @@ route.put("/:id", async (req, res) => {
 });
 
 // Deleting a genre
-route.delete("/:id", async (req, res) => {
+route.delete("/:id", [auth, admin] ,async (req, res) => {
   // check if id is valid
   const isValidId = mongoose.Types.ObjectId.isValid(req.params.id);
   if (!isValidId) return res.status(400).send("ID is not valid");

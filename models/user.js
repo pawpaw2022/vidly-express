@@ -3,7 +3,7 @@
 const Joi = require("joi");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
-const config = require("config")
+const config = require("config");
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -24,12 +24,16 @@ const userSchema = new mongoose.Schema({
     required: true,
     minlength: 5,
     maxlength: 255,
-  }
+  },
+  isAdmin: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 userSchema.methods.generateAuthToken = function () {
   // issue JWT
-  const token = jwt.sign({ _id: this._id }, config.get("jwtPrivateKey"));
+  const token = jwt.sign({ _id: this._id, isAdmin: this.isAdmin }, config.get("jwtPrivateKey"));
   return token;
 };
 

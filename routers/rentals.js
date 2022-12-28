@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const { Rental, validate } = require("../models/rental");
 const { Customer } = require("../models/customer");
 const { Movie } = require("../models/movie");
+const auth = require("../middleware/auth");
 
 // Get all the rentals
 route.get("/", (req, res) => {
@@ -20,7 +21,7 @@ route.get("/:id", (req, res) => {
 });
 
 // add a new rental
-route.post("/", async (req, res) => {
+route.post("/", auth, async (req, res) => {
   // validation
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);

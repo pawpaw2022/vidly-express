@@ -5,6 +5,8 @@ const route = express.Router();
 const mongoose = require("mongoose");
 const { Movie, validate, validateUpdate } = require("../models/movie");
 const { Genre } = require("../models/genre");
+const auth = require("../middleware/auth");
+const admin = require("../middleware/admin");
 
 // Get all the movies
 route.get("/", (req, res) => {
@@ -19,7 +21,7 @@ route.get("/:id", (req, res) => {
 });
 
 // add a new movie
-route.post("/", async (req, res) => {
+route.post("/", auth, async (req, res) => {
   // validation
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
@@ -39,7 +41,7 @@ route.post("/", async (req, res) => {
 });
 
 // Updating a movie
-route.put("/:id", async (req, res) => {
+route.put("/:id", [auth, admin] ,async (req, res) => {
   // check if id is valid
   const isValidId = mongoose.Types.ObjectId.isValid(req.params.id);
   if (!isValidId) return res.status(400).send("ID is not valid");
@@ -81,7 +83,7 @@ route.put("/:id", async (req, res) => {
 });
 
 // Deleting a movie
-route.delete("/:id", async (req, res) => {
+route.delete("/:id", [auth, admin] ,async (req, res) => {
   // check if id is valid
   const isValidId = mongoose.Types.ObjectId.isValid(req.params.id);
   if (!isValidId) return res.status(400).send("ID is not valid");
