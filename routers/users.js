@@ -4,6 +4,10 @@ const express = require("express");
 const route = express.Router();
 const mongoose = require("mongoose");
 const { User, validate } = require("../models/user");
+const _ = require("lodash");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const config = require("config");
 
 // add a new user
 route.post("/", async (req, res) => {
@@ -21,8 +25,14 @@ route.post("/", async (req, res) => {
     password: req.body.password,
   });
 
-  const result = await user.save();
-  res.send(result);
+  // hash password
+  const salt = await bcrypt.genSalt(10);
+  const hashed = await bcrypt.hash(user.password, salt);
+  user.password = hashed;
+
+  await user.save();
+  const token = user.generateAuthToken();
+  res.header("x-auth-token", token).send(_.pick(user, ["id", "name", "email"]));
 });
 
 module.exports = route;
