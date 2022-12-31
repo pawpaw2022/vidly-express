@@ -360,3 +360,43 @@
   level: 'info',
   timestamp: '2022-12-29T22:42:50.881Z'
 }
+{
+  message: 'Listening to port 3000',
+  level: 'info',
+  timestamp: '2022-12-31T06:32:07.731Z'
+}
+{
+  message: 'Connected to db!',
+  level: 'info',
+  timestamp: '2022-12-31T06:32:07.750Z'
+}
+{
+  message: 'Listening to port 3000',
+  level: 'info',
+  timestamp: '2022-12-31T06:55:51.099Z'
+}
+{
+  message: 'Connected to db!',
+  level: 'info',
+  timestamp: '2022-12-31T06:55:51.108Z'
+}
+{
+  message: 'Listening to port 3000',
+  level: 'info',
+  timestamp: '2022-12-31T07:02:10.353Z'
+}
+{
+  message: 'Connected to db!',
+  level: 'info',
+  timestamp: '2022-12-31T07:02:10.372Z'
+}
+{
+  message: 'Listening to port 3000',
+  level: 'info',
+  timestamp: '2022-12-31T07:03:27.913Z'
+}
+{
+  message: 'Connected to db!',
+  level: 'info',
+  timestamp: '2022-12-31T07:03:27.934Z'
+}
