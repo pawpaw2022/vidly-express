@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const { Genre, validate } = require("../models/genre");
 const auth = require("../middleware/auth");
 const admin = require("../middleware/admin");
+const validateObjectId = require("../middleware/validateObjectId");
 
 // Get all the genres
 route.get("/", (req, res) => {
@@ -15,8 +16,12 @@ route.get("/", (req, res) => {
 });
 
 // Get single genre
-route.get("/:id", (req, res) => {
-  Genre.find({ _id: req.params.id }).then((result) => res.send(result));
+route.get("/:id", validateObjectId, (req, res, next) => {
+  Genre.find({ _id: req.params.id })
+    .then((result) => res.send(result))
+    .catch((err) => {
+      next(err);
+    });
 });
 
 // add a new genre
@@ -57,10 +62,10 @@ route.put("/:id", [auth, admin], async (req, res) => {
 });
 
 // Deleting a genre
-route.delete("/:id", [auth, admin] ,async (req, res) => {
+route.delete("/:id", [auth, admin], async (req, res) => {
   // check if id is valid
   const isValidId = mongoose.Types.ObjectId.isValid(req.params.id);
-  if (!isValidId) return res.status(400).send("ID is not valid");
+  if (!isValidId) return res.status(404).send("ID is not valid");
 
   // delete
   const genre = await Genre.findByIdAndRemove(req.params.id);

@@ -1,3 +1,4 @@
 {
-    "jwtPrivateKey": "node_env_jwt_private_key"
+    "jwtPrivateKey": "node_env_jwt_private_key",
+    "db": "mongodb://localhost:27017/vidly-express"
 }

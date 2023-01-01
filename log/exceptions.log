@@ -8895,3 +8895,289 @@
   label: 'Meow',
   timestamp: '2022-12-29T22:41:17.007Z'
 }
+{
+  error: CastError: Cast to ObjectId failed for value "12313" (type string) at path "_id" for model "Genre"
+      at model.Query.exec (/Users/paul/Learning/Node/vidly-express/node_modules/mongoose/lib/query.js:4897:21)
+      at Query.then (/Users/paul/Learning/Node/vidly-express/node_modules/mongoose/lib/query.js:4996:15)
+      at /Users/paul/Learning/Node/vidly-express/routers/genres.js:19:38
+      at Layer.handle [as handle_request] (/Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/layer.js:95:5)
+      at next (/Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/route.js:144:13)
+      at Route.dispatch (/Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/route.js:114:3)
+      at Layer.handle [as handle_request] (/Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/layer.js:95:5)
+      at /Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/index.js:284:15
+      at param (/Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/index.js:365:14)
+      at param (/Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/index.js:376:14) {
+    messageFormat: undefined,
+    stringValue: '"12313"',
+    kind: 'ObjectId',
+    value: '12313',
+    path: '_id',
+    reason: BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+        at new BSONTypeError (/Users/paul/Learning/Node/vidly-express/node_modules/bson/lib/error.js:41:28)
+        at new ObjectId (/Users/paul/Learning/Node/vidly-express/node_modules/bson/lib/objectid.js:67:23)
+        at castObjectId (/Users/paul/Learning/Node/vidly-express/node_modules/mongoose/lib/cast/objectid.js:25:12)
+        at ObjectId.cast (/Users/paul/Learning/Node/vidly-express/node_modules/mongoose/lib/schema/objectid.js:246:12)
+        at SchemaType.applySetters (/Users/paul/Learning/Node/vidly-express/node_modules/mongoose/lib/schematype.js:1201:12)
+        at SchemaType._castForQuery (/Users/paul/Learning/Node/vidly-express/node_modules/mongoose/lib/schematype.js:1648:15)
+        at SchemaType.castForQuery (/Users/paul/Learning/Node/vidly-express/node_modules/mongoose/lib/schematype.js:1636:15)
+        at SchemaType.castForQueryWrapper (/Users/paul/Learning/Node/vidly-express/node_modules/mongoose/lib/schematype.js:1612:20)
+        at cast (/Users/paul/Learning/Node/vidly-express/node_modules/mongoose/lib/cast.js:342:32)
+        at Query.cast (/Users/paul/Learning/Node/vidly-express/node_modules/mongoose/lib/query.js:5325:12),
+    valueType: 'string'
+  },
+  level: 'error',
+  message: 'unhandledRejection: Cast to ObjectId failed for value "12313" (type string) at path "_id" for model "Genre"\n' +
+    'CastError: Cast to ObjectId failed for value "12313" (type string) at path "_id" for model "Genre"\n' +
+    '    at model.Query.exec (/Users/paul/Learning/Node/vidly-express/node_modules/mongoose/lib/query.js:4897:21)\n' +
+    '    at Query.then (/Users/paul/Learning/Node/vidly-express/node_modules/mongoose/lib/query.js:4996:15)\n' +
+    '    at /Users/paul/Learning/Node/vidly-express/routers/genres.js:19:38\n' +
+    '    at Layer.handle [as handle_request] (/Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at next (/Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/route.js:144:13)\n' +
+    '    at Route.dispatch (/Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/route.js:114:3)\n' +
+    '    at Layer.handle [as handle_request] (/Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at /Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/index.js:284:15\n' +
+    '    at param (/Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/index.js:365:14)\n' +
+    '    at param (/Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/index.js:376:14)',
+  stack: 'CastError: Cast to ObjectId failed for value "12313" (type string) at path "_id" for model "Genre"\n' +
+    '    at model.Query.exec (/Users/paul/Learning/Node/vidly-express/node_modules/mongoose/lib/query.js:4897:21)\n' +
+    '    at Query.then (/Users/paul/Learning/Node/vidly-express/node_modules/mongoose/lib/query.js:4996:15)\n' +
+    '    at /Users/paul/Learning/Node/vidly-express/routers/genres.js:19:38\n' +
+    '    at Layer.handle [as handle_request] (/Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at next (/Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/route.js:144:13)\n' +
+    '    at Route.dispatch (/Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/route.js:114:3)\n' +
+    '    at Layer.handle [as handle_request] (/Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at /Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/index.js:284:15\n' +
+    '    at param (/Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/index.js:365:14)\n' +
+    '    at param (/Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/index.js:376:14)',
+  exception: true,
+  date: 'Sat Dec 31 2022 21:44:47 GMT-0800 (Pacific Standard Time)',
+  process: {
+    pid: 60246,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/paul/Learning/Node/vidly-express',
+    execPath: '/usr/local/bin/node',
+    version: 'v18.12.1',
+    argv: [
+      '/usr/local/bin/node',
+      '/Users/paul/Learning/Node/vidly-express/app.js'
+    ],
+    memoryUsage: {
+      rss: 83148800,
+      heapTotal: 31670272,
+      heapUsed: 28363216,
+      external: 19208876,
+      arrayBuffers: 18270644
+    }
+  },
+  os: {
+    loadavg: [ 3.4765625, 3.75048828125, 3.77783203125 ],
+    uptime: 3909592
+  },
+  trace: [
+    {
+      column: 21,
+      file: '/Users/paul/Learning/Node/vidly-express/node_modules/mongoose/lib/query.js',
+      function: 'model.Query.exec',
+      line: 4897,
+      method: 'exec',
+      native: false
+    },
+    {
+      column: 15,
+      file: '/Users/paul/Learning/Node/vidly-express/node_modules/mongoose/lib/query.js',
+      function: 'Query.then',
+      line: 4996,
+      method: 'then',
+      native: false
+    },
+    {
+      column: 38,
+      file: '/Users/paul/Learning/Node/vidly-express/routers/genres.js',
+      function: null,
+      line: 19,
+      method: null,
+      native: false
+    },
+    {
+      column: 5,
+      file: '/Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/layer.js',
+      function: 'Layer.handle [as handle_request]',
+      line: 95,
+      method: 'handle [as handle_request]',
+      native: false
+    },
+    {
+      column: 13,
+      file: '/Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/route.js',
+      function: 'next',
+      line: 144,
+      method: null,
+      native: false
+    },
+    {
+      column: 3,
+      file: '/Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/route.js',
+      function: 'Route.dispatch',
+      line: 114,
+      method: 'dispatch',
+      native: false
+    },
+    {
+      column: 5,
+      file: '/Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/layer.js',
+      function: 'Layer.handle [as handle_request]',
+      line: 95,
+      method: 'handle [as handle_request]',
+      native: false
+    },
+    {
+      column: 15,
+      file: '/Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/index.js',
+      function: null,
+      line: 284,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: '/Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/index.js',
+      function: 'param',
+      line: 365,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: '/Users/paul/Learning/Node/vidly-express/node_modules/express/lib/router/index.js',
+      function: 'param',
+      line: 376,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2023-01-01T05:44:47.513Z'
+}
+{
+  error: TypeError: Cannot read properties of undefined (reading 'message')
+      at module.exports (/Users/paul/Learning/Node/vidly-express/middleware/error.js:7:27)
+      at Object.<anonymous> (/Users/paul/Learning/Node/vidly-express/app.js:13:30)
+      at Module._compile (node:internal/modules/cjs/loader:1159:14)
+      at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)
+      at Module.load (node:internal/modules/cjs/loader:1037:32)
+      at Module._load (node:internal/modules/cjs/loader:878:12)
+      at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+      at node:internal/main/run_main_module:23:47,
+  level: 'error',
+  message: "uncaughtException: Cannot read properties of undefined (reading 'message')\n" +
+    "TypeError: Cannot read properties of undefined (reading 'message')\n" +
+    '    at module.exports (/Users/paul/Learning/Node/vidly-express/middleware/error.js:7:27)\n' +
+    '    at Object.<anonymous> (/Users/paul/Learning/Node/vidly-express/app.js:13:30)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1159:14)\n' +
+    '    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1037:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:878:12)\n' +
+    '    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)\n' +
+    '    at node:internal/main/run_main_module:23:47',
+  stack: "TypeError: Cannot read properties of undefined (reading 'message')\n" +
+    '    at module.exports (/Users/paul/Learning/Node/vidly-express/middleware/error.js:7:27)\n' +
+    '    at Object.<anonymous> (/Users/paul/Learning/Node/vidly-express/app.js:13:30)\n' +
+    '    at Module._compile (node:internal/modules/cjs/loader:1159:14)\n' +
+    '    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)\n' +
+    '    at Module.load (node:internal/modules/cjs/loader:1037:32)\n' +
+    '    at Module._load (node:internal/modules/cjs/loader:878:12)\n' +
+    '    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)\n' +
+    '    at node:internal/main/run_main_module:23:47',
+  exception: true,
+  date: 'Sat Dec 31 2022 21:48:06 GMT-0800 (Pacific Standard Time)',
+  process: {
+    pid: 60523,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/paul/Learning/Node/vidly-express',
+    execPath: '/usr/local/bin/node',
+    version: 'v18.12.1',
+    argv: [
+      '/usr/local/bin/node',
+      '/Users/paul/Learning/Node/vidly-express/app.js'
+    ],
+    memoryUsage: {
+      rss: 97566720,
+      heapTotal: 61554688,
+      heapUsed: 32666440,
+      external: 19435044,
+      arrayBuffers: 18512371
+    }
+  },
+  os: {
+    loadavg: [ 4.59765625, 4.0732421875, 3.9072265625 ],
+    uptime: 3909791
+  },
+  trace: [
+    {
+      column: 27,
+      file: '/Users/paul/Learning/Node/vidly-express/middleware/error.js',
+      function: 'module.exports',
+      line: 7,
+      method: 'exports',
+      native: false
+    },
+    {
+      column: 30,
+      file: '/Users/paul/Learning/Node/vidly-express/app.js',
+      function: null,
+      line: 13,
+      method: null,
+      native: false
+    },
+    {
+      column: 14,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._compile',
+      line: 1159,
+      method: '_compile',
+      native: false
+    },
+    {
+      column: 10,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._extensions..js',
+      line: 1213,
+      method: '.js',
+      native: false
+    },
+    {
+      column: 32,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module.load',
+      line: 1037,
+      method: 'load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/cjs/loader',
+      function: 'Module._load',
+      line: 878,
+      method: '_load',
+      native: false
+    },
+    {
+      column: 12,
+      file: 'node:internal/modules/run_main',
+      function: 'Function.executeUserEntryPoint [as runMain]',
+      line: 81,
+      method: 'executeUserEntryPoint [as runMain]',
+      native: false
+    },
+    {
+      column: 47,
+      file: 'node:internal/main/run_main_module',
+      function: null,
+      line: 23,
+      method: null,
+      native: false
+    }
+  ],
+  timestamp: '2023-01-01T05:48:06.862Z'
+}

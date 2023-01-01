@@ -8,9 +8,11 @@ const logger = require("./middleware/winston");
 const app = express();
 require("./startups/config")();
 require("./startups/joi")();
-require("./startups/routes")(app);
 require("./startups/db")();
+require("./startups/routes")(app);
 
 // Listen on port 3000
 const port = process.env.PORT || 3000; // export PORT=4000
-app.listen(port, () => logger.info(`Listening to port ${port}`));
+const server = app.listen(port, () => logger.info(`Listening to port ${port}`));
+
+module.exports = server; 

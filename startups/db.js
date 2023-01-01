@@ -2,13 +2,15 @@
 
 const mongoose = require("mongoose");
 const logger = require("../middleware/winston");
+const config = require("config");
 
-
-module.exports = function(){
+module.exports = function () {
+  const db = config.get("db");
   mongoose.set("strictQuery", true);
   mongoose
-    .connect("mongodb://localhost:27017/vidly-express")
-    .then(() => logger.info("Connected to db!"))
-    .catch((err) => logger.error("Could not connect to database: ", err.message));
-  
+    .connect(db)
+    .then(() => logger.info(`Connected to ${config.get("db")}!`))
+    .catch((err) =>
+      logger.error("Could not connect to database: ", err.message)
+    );
 };
