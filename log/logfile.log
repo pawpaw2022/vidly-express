@@ -1005,3 +1005,218 @@
   level: 'info',
   timestamp: '2023-01-01T06:26:59.625Z'
 }
+{
+  message: 'Listening to port 3000',
+  level: 'info',
+  timestamp: '2023-01-01T23:01:26.436Z'
+}
+{
+  message: 'Connected to mongodb://localhost:27017/vidly-express!',
+  level: 'info',
+  timestamp: '2023-01-01T23:01:26.631Z'
+}
+{
+  message: 'Listening to port 3000',
+  level: 'info',
+  timestamp: '2023-01-01T23:03:25.660Z'
+}
+{
+  message: 'Connected to mongodb://localhost:27017/vidly-express!',
+  level: 'info',
+  timestamp: '2023-01-01T23:03:25.669Z'
+}
+{
+  message: 'Listening to port 3000',
+  level: 'info',
+  timestamp: '2023-01-01T23:06:30.131Z'
+}
+{
+  message: 'Connected to mongodb://localhost:27017/vidly-express!',
+  level: 'info',
+  timestamp: '2023-01-01T23:06:30.157Z'
+}
+{
+  message: 'Listening to port 3000',
+  level: 'info',
+  timestamp: '2023-01-01T23:07:25.323Z'
+}
+{
+  message: 'Connected to mongodb://localhost:27017/vidly-express!',
+  level: 'info',
+  timestamp: '2023-01-01T23:07:25.349Z'
+}
+{
+  message: 'Listening to port 3000',
+  level: 'info',
+  timestamp: '2023-01-01T23:08:34.126Z'
+}
+{
+  message: 'Connected to mongodb://localhost:27017/vidly-express!',
+  level: 'info',
+  timestamp: '2023-01-01T23:08:34.137Z'
+}
+{
+  message: 'Listening to port 3000',
+  level: 'info',
+  timestamp: '2023-01-01T23:17:31.019Z'
+}
+{
+  message: 'Connected to mongodb://localhost:27017/vidly-express!',
+  level: 'info',
+  timestamp: '2023-01-01T23:17:31.029Z'
+}
+{
+  message: 'Listening to port 3000',
+  level: 'info',
+  timestamp: '2023-01-01T23:27:25.812Z'
+}
+{
+  message: 'Connected to mongodb://localhost:27017/vidly-express!',
+  level: 'info',
+  timestamp: '2023-01-01T23:27:25.823Z'
+}
+{
+  message: 'Connected to mongodb://localhost:27017/vidly-express!',
+  level: 'info',
+  timestamp: '2023-01-01T23:27:26.740Z'
+}
+{
+  message: 'Listening to port 3000',
+  level: 'info',
+  timestamp: '2023-01-01T23:28:03.117Z'
+}
+{
+  message: 'Connected to mongodb://localhost:27017/vidly-express!',
+  level: 'info',
+  timestamp: '2023-01-01T23:28:03.124Z'
+}
+{
+  message: 'Listening to port 3000',
+  level: 'info',
+  timestamp: '2023-01-01T23:28:03.137Z'
+}
+{
+  message: 'Connected to mongodb://localhost:27017/vidly-express!',
+  level: 'info',
+  timestamp: '2023-01-01T23:28:03.141Z'
+}
+{
+  message: 'Listening to port 3000',
+  level: 'info',
+  timestamp: '2023-01-01T23:28:48.171Z'
+}
+{
+  message: 'Listening to port 3000',
+  level: 'info',
+  timestamp: '2023-01-01T23:28:48.176Z'
+}
+{
+  message: 'Connected to mongodb://localhost:27017/vidly-express!',
+  level: 'info',
+  timestamp: '2023-01-01T23:28:48.181Z'
+}
+{
+  message: 'Connected to mongodb://localhost:27017/vidly-express!',
+  level: 'info',
+  timestamp: '2023-01-01T23:28:48.198Z'
+}
+{
+  message: 'Listening to port 3000',
+  level: 'info',
+  timestamp: '2023-01-01T23:31:26.760Z'
+}
+{
+  message: 'Listening to port 3000',
+  level: 'info',
+  timestamp: '2023-01-01T23:31:26.767Z'
+}
+{
+  message: 'Connected to mongodb://localhost:27017/vidly-express!',
+  level: 'info',
+  timestamp: '2023-01-01T23:31:26.772Z'
+}
+{
+  message: 'Connected to mongodb://localhost:27017/vidly-express!',
+  level: 'info',
+  timestamp: '2023-01-01T23:31:26.790Z'
+}
+{
+  message: 'Listening to port 3000',
+  level: 'info',
+  timestamp: '2023-01-01T23:32:57.035Z'
+}
+{
+  message: 'Connected to mongodb://localhost:27017/vidly-express!',
+  level: 'info',
+  timestamp: '2023-01-01T23:32:57.044Z'
+}
+{
+  message: 'Listening to port 3000',
+  level: 'info',
+  timestamp: '2023-01-01T23:32:57.057Z'
+}
+{
+  message: 'Connected to mongodb://localhost:27017/vidly-express!',
+  level: 'info',
+  timestamp: '2023-01-01T23:32:57.063Z'
+}
+{
+  message: 'Listening to port 3000',
+  level: 'info',
+  timestamp: '2023-01-01T23:33:29.412Z'
+}
+{
+  message: 'Connected to mongodb://localhost:27017/vidly-express!',
+  level: 'info',
+  timestamp: '2023-01-01T23:33:29.566Z'
+}
+{
+  message: 'Connected to mongodb://localhost:27017/vidly-express!',
+  level: 'info',
+  timestamp: '2023-01-01T23:33:29.638Z'
+}
+{
+  message: 'Listening to port 3000',
+  level: 'info',
+  timestamp: '2023-01-01T23:33:29.668Z'
+}
+{
+  message: 'Listening to port 3000',
+  level: 'info',
+  timestamp: '2023-01-01T23:34:50.336Z'
+}
+{
+  message: 'Listening to port 3000',
+  level: 'info',
+  timestamp: '2023-01-01T23:34:50.340Z'
+}
+{
+  message: 'Connected to mongodb://localhost:27017/vidly-express!',
+  level: 'info',
+  timestamp: '2023-01-01T23:34:50.366Z'
+}
+{
+  message: 'Connected to mongodb://localhost:27017/vidly-express!',
+  level: 'info',
+  timestamp: '2023-01-01T23:34:50.367Z'
+}
+{
+  message: 'Listening to port 3000',
+  level: 'info',
+  timestamp: '2023-01-01T23:58:24.022Z'
+}
+{
+  message: 'Connected to mongodb://localhost:27017/vidly-express!',
+  level: 'info',
+  timestamp: '2023-01-01T23:58:24.051Z'
+}
+{
+  message: 'Listening to port 3000',
+  level: 'info',
+  timestamp: '2023-01-01T23:58:24.458Z'
+}
+{
+  message: 'Connected to mongodb://localhost:27017/vidly-express!',
+  level: 'info',
+  timestamp: '2023-01-01T23:58:24.473Z'
+}

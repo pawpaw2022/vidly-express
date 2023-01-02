@@ -5,6 +5,7 @@ const { combine, timestamp, label, prettyPrint } = winston.format;
 
 const logger = winston.createLogger({
   format: combine(timestamp(), prettyPrint()),
+  level: "warn",
   transports: [
     new winston.transports.Console(),
     new winston.transports.File({ filename: "log/logfile.log" }),
