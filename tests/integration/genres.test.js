@@ -1,5 +1,6 @@
 /** @format */
 
+const mongoose = require("mongoose");
 const request = require("supertest");
 const { Genre } = require("../../models/genre");
 const { User } = require("../../models/user");
@@ -96,6 +97,162 @@ describe("/api/genres", () => {
 
       expect(res.status).toBe(200);
       expect(res.body).toHaveProperty("_id");
+      expect(res.body).toHaveProperty("name", "genre1");
+    });
+  });
+
+  describe("PUT /:id", () => {
+    it("should 401 if client is not logged in", async () => {
+      // simulate a new genre
+      const newGenre = new Genre({
+        name: "genre1",
+      });
+      await newGenre.save();
+
+      // simulate operation
+      const res = await request(server)
+        .put(`/api/genres/${newGenre._id}`)
+        .send({ name: "genre2" });
+      expect(res.status).toBe(401);
+    });
+
+    it("should 403 if client is not admin", async () => {
+      // simulate a new genre
+      const newGenre = new Genre({
+        name: "genre1",
+      });
+      await newGenre.save();
+
+      // generate auth token
+      const token = new User().generateAuthToken();
+
+      const res = await request(server)
+        .put(`/api/genres/${newGenre._id}`)
+        .set("x-auth-token", token)
+        .send({ name: "genre2" });
+      expect(res.status).toBe(403);
+    });
+
+    it("should 404 if genre is not found", async () => {
+      // simulate a new genre
+      const newGenre = new Genre({
+        name: "genre1",
+      });
+      await newGenre.save();
+
+      // generate auth token
+      const token = new User({
+        _id: mongoose.Types.ObjectId(),
+        isAdmin: true,
+      }).generateAuthToken();
+
+      const res = await request(server)
+        .put(`/api/genres/${mongoose.Types.ObjectId()}`)
+        .set("x-auth-token", token)
+        .send({ name: "genre2" });
+      expect(res.status).toBe(404);
+    });
+    it("should 400 if req.body is invalid", async () => {
+      // simulate a new genre
+      const newGenre = new Genre({
+        name: "genre1",
+      });
+      await newGenre.save();
+
+      // generate auth token
+      const token = new User({
+        _id: mongoose.Types.ObjectId(),
+        isAdmin: true,
+      }).generateAuthToken();
+
+      const res = await request(server)
+        .put(`/api/genres/${newGenre._id}`)
+        .set("x-auth-token", token)
+        .send({ name: "" });
+      expect(res.status).toBe(400);
+    });
+
+    it("should update a genre if valid id", async () => {
+      // simulate a new genre
+      const newGenre = new Genre({
+        name: "genre1",
+      });
+      await newGenre.save();
+
+      // generate auth token
+      const token = new User({
+        _id: mongoose.Types.ObjectId(),
+        isAdmin: true,
+      }).generateAuthToken();
+
+      const res = await request(server)
+        .put(`/api/genres/${newGenre._id}`)
+        .set("x-auth-token", token)
+        .send({ name: "genre2" });
+      expect(res.status).toBe(200);
+      expect(res.body).toHaveProperty("name", "genre2");
+    });
+  });
+  describe("DELETE /:id", () => {
+    it("should 401 if client is not logged in", async () => {
+      const newGenre = new Genre({
+        name: "genre1",
+      });
+      await newGenre.save();
+
+      const res = await request(server).delete(`/api/genres/${newGenre._id}`);
+      expect(res.status).toBe(401);
+    });
+
+    it("should 403 if client is not admin", async () => {
+      const newGenre = new Genre({
+        name: "genre1",
+      });
+      await newGenre.save();
+
+      // generate auth token
+      const token = new User().generateAuthToken();
+
+      const res = await request(server)
+        .delete(`/api/genres/${newGenre._id}`)
+        .set("x-auth-token", token);
+      expect(res.status).toBe(403);
+    });
+
+    it("should 404 if genre is not found", async () => {
+      const newGenre = new Genre({
+        name: "genre1",
+      });
+      await newGenre.save();
+
+      // generate auth token
+      const token = new User({
+        _id: mongoose.Types.ObjectId(),
+        isAdmin: true,
+      }).generateAuthToken();
+
+      const res = await request(server)
+        .delete(`/api/genres/${mongoose.Types.ObjectId()}`)
+        .set("x-auth-token", token);
+      expect(res.status).toBe(404);
+    });
+
+    it("should delete a genre if valid id", async () => {
+      const newGenre = new Genre({
+        name: "genre1",
+      });
+      await newGenre.save();
+
+      // generate auth token
+      const token = new User({
+        _id: mongoose.Types.ObjectId(),
+        isAdmin: true,
+      }).generateAuthToken();
+
+      const res = await request(server)
+        .delete(`/api/genres/${newGenre._id}`)
+        .set("x-auth-token", token);
+      expect(res.status).toBe(200);
       expect(res.body).toHaveProperty("name", "genre1");
     });
   });

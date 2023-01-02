@@ -16,12 +16,8 @@ route.get("/", (req, res) => {
 });
 
 // Get single genre
-route.get("/:id", validateObjectId, (req, res, next) => {
-  Genre.find({ _id: req.params.id })
-    .then((result) => res.send(result))
-    .catch((err) => {
-      next(err);
-    });
+route.get("/:id", validateObjectId, (req, res) => {
+  Genre.find({ _id: req.params.id }).then((result) => res.send(result));
 });
 
 // add a new genre
@@ -38,11 +34,7 @@ route.post("/", auth, (req, res) => {
 });
 
 // Updating a genre
-route.put("/:id", [auth, admin], async (req, res) => {
-  // check if id is valid
-  const isValidId = mongoose.Types.ObjectId.isValid(req.params.id);
-  if (!isValidId) return res.status(400).send("ID is not valid");
-
+route.put("/:id", [auth, admin, validateObjectId], async (req, res) => {
   // validation
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
@@ -62,11 +54,7 @@ route.put("/:id", [auth, admin], async (req, res) => {
 });
 
 // Deleting a genre
-route.delete("/:id", [auth, admin], async (req, res) => {
-  // check if id is valid
-  const isValidId = mongoose.Types.ObjectId.isValid(req.params.id);
-  if (!isValidId) return res.status(404).send("ID is not valid");
-
+route.delete("/:id", [auth, admin, validateObjectId], async (req, res) => {
   // delete
   const genre = await Genre.findByIdAndRemove(req.params.id);
 
