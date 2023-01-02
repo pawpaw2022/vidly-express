@@ -7,12 +7,18 @@ const { User } = require("../../models/user");
 
 let server;
 
+beforeAll(() => {
+  server = require("../../app");
+});
+
+afterAll(() => {
+  // Closing the DB connection allows Jest to exit successfully.
+  mongoose.connection.close();
+  server.close();
+});
+
 describe("/api/genres", () => {
-  beforeEach(() => {
-    server = require("../../app");
-  });
   afterEach(async () => {
-    server.close();
     await Genre.deleteMany({}); // wipe out all data after done
   });
   describe("GET /", () => {

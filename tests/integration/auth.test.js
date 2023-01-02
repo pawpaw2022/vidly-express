@@ -3,14 +3,24 @@ const request = require("supertest");
 const { Genre } = require("../../models/genre");
 const { User } = require("../../models/user");
 
+const mongoose = require("mongoose");
+
 let server;
 
+beforeAll(() => {
+  server = require("../../app");
+});
+
+afterAll(() => {
+  // Closing the DB connection allows Jest to exit successfully.
+  mongoose.connection.close();
+  server.close();
+});
+
+
 describe("auth middleware", () => {
-  beforeEach(() => {
-    server = require("../../app");
-  });
+
   afterEach(async () => {
-    server.close();
     await Genre.deleteMany({}); // wipe out all data after done
   });
 
