@@ -40,14 +40,13 @@ const Rental = mongoose.model(
         dailyRentalRate: {
           type: Number,
           required: true,
-          default: Date.now,
+          default: 4.99,
         },
       }),
       required: true,
     },
     dateOut: {
       type: Date,
-      default: Date.now(),
     },
     dateReturned: {
       type: Date,
@@ -55,7 +54,7 @@ const Rental = mongoose.model(
     rentalFee: {
       type: Number,
       min: 0,
-      default: 4.99,
+      default: 0,
     },
   })
 );

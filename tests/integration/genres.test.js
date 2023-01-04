@@ -14,7 +14,7 @@ beforeAll(() => {
 afterAll(() => {
   // Closing the DB connection allows Jest to exit successfully.
   mongoose.connection.close();
-  server.close();
+   server.close();
 });
 
 describe("/api/genres", () => {

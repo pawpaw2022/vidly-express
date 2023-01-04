@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "jest --verbose --coverage --maxWorkers=1"
+    "test": "jest --verbose --maxWorkers=1"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +17,7 @@
     "joi-objectid": "^4.0.2",
     "jsonwebtoken": "^9.0.0",
     "lodash": "^4.17.21",
+    "moment": "^2.29.4",
     "mongoose": "^6.8.0",
     "winston": "^3.8.2"
   },

@@ -17,9 +17,7 @@ afterAll(() => {
   server.close();
 });
 
-
 describe("auth middleware", () => {
-
   afterEach(async () => {
     await Genre.deleteMany({}); // wipe out all data after done
   });
