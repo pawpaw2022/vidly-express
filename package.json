@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "jest --verbose --maxWorkers=1"
+    "test": "jest --verbose --maxWorkers=1",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
