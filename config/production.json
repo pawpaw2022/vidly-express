@@ -1,0 +1,4 @@
+{
+    "jwtPrivateKey": "node_env_jwt_private_key",
+    "db": "mongodb+srv://pawpaw2022:lusining123@shared-cluster0.mflyafb.mongodb.net/?retryWrites=true&w=majority"
+}
