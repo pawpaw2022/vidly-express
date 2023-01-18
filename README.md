@@ -50,5 +50,4 @@ Vidly-express is a project I built as I was learning nodejs and express framewor
 For example: 
 GET https://vidly-express-render-1-0.onrender.com/api/genres to retrieve all genres 
 
-![postman](/assets/postman)
-
+![postman](/assets/postman.png)
