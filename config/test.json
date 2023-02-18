@@ -1,5 +1,5 @@
 {
     "jwtPrivateKey": "test",
-    "db": "mongodb://localhost:27017/vidly-express"
+    "db": "mongodb+srv://pawpaw2022:lusining123@shared-cluster0.mflyafb.mongodb.net/?retryWrites=true&w=majority"
 
 }

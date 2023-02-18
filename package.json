@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "jest --verbose --maxWorkers=1",
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev": "nodemon app"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +21,7 @@
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "mongoose": "^6.8.0",
+    "redis": "^3.1.2",
     "winston": "^3.8.2"
   },
   "devDependencies": {

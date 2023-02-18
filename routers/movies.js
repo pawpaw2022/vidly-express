@@ -7,17 +7,25 @@ const { Movie, validate, validateUpdate } = require("../models/movie");
 const { Genre } = require("../models/genre");
 const auth = require("../middleware/auth");
 const admin = require("../middleware/admin");
+const getOrSetRedisCache = require("../middleware/redis");
 
 // Get all the movies
-route.get("/", (req, res) => {
-  Movie.find()
-    .sort({ title: 1 })
-    .then((result) => res.send(result));
+route.get("/", async (req, res) => {
+  const result = await getOrSetRedisCache("movies", async () => {
+    const data = await Movie.find().sort({ title: 1 });
+    return data;
+  });
+  res.send(result);
 });
 
 // Get single movie
-route.get("/:id", (req, res) => {
-  Movie.find({ _id: req.params.id }).then((result) => res.send(result));
+route.get("/:id", async(req, res) => {
+  const result = await getOrSetRedisCache("movies/"+req.params.id, async () => {
+    const data = await Movie.find({ _id: req.params.id });
+    return data;
+  });
+  res.send(result);
+
 });
 
 // add a new movie
@@ -41,7 +49,7 @@ route.post("/", auth, async (req, res) => {
 });
 
 // Updating a movie
-route.put("/:id", [auth, admin] ,async (req, res) => {
+route.put("/:id", [auth, admin], async (req, res) => {
   // check if id is valid
   const isValidId = mongoose.Types.ObjectId.isValid(req.params.id);
   if (!isValidId) return res.status(400).send("ID is not valid");
@@ -54,7 +62,6 @@ route.put("/:id", [auth, admin] ,async (req, res) => {
   const movie = await Movie.findById(req.params.id);
   if (!movie) return res.status(404).send("Movie not found");
 
-
   // if the user wants to update genre
   if (req.body.genreId && movie.genre._id.toString() !== req.body.genreId) {
     // find genre
@@ -62,8 +69,8 @@ route.put("/:id", [auth, admin] ,async (req, res) => {
     if (!genre) return res.status(400).send("Invalid Genre ID");
     // update genre
     movie.set({
-        genre: { name: genre.name, _id: genre._id }
-    })
+      genre: { name: genre.name, _id: genre._id },
+    });
   }
 
   // update
@@ -83,7 +90,7 @@ route.put("/:id", [auth, admin] ,async (req, res) => {
 });
 
 // Deleting a movie
-route.delete("/:id", [auth, admin] ,async (req, res) => {
+route.delete("/:id", [auth, admin], async (req, res) => {
   // check if id is valid
   const isValidId = mongoose.Types.ObjectId.isValid(req.params.id);
   if (!isValidId) return res.status(400).send("ID is not valid");

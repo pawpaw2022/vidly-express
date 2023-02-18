@@ -7,17 +7,25 @@ const { Genre, validate } = require("../models/genre");
 const auth = require("../middleware/auth");
 const admin = require("../middleware/admin");
 const validateObjectId = require("../middleware/validateObjectId");
+const getOrSetRedisCache = require("../middleware/redis")
 
 // Get all the genres
-route.get("/", (req, res) => {
-  Genre.find()
-    .sort({ name: 1 })
-    .then((result) => res.send(result));
+route.get("/", async(req, res) => {
+
+  const result = await getOrSetRedisCache('genres', async()=>{
+    const data = await Genre.find().sort({ name: 1 })
+    return data
+  })
+  res.send(result)
 });
 
 // Get single genre
-route.get("/:id", validateObjectId, (req, res) => {
-  Genre.find({ _id: req.params.id }).then((result) => res.send(result));
+route.get("/:id", async(req, res) => {
+  const result = await getOrSetRedisCache('genres/'+req.params.id, async()=>{
+    const data = await Genre.find({ _id: req.params.id })
+    return data
+  })
+  res.send(result)
 });
 
 // add a new genre

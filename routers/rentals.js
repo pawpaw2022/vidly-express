@@ -7,17 +7,24 @@ const { Rental, validate } = require("../models/rental");
 const { Customer } = require("../models/customer");
 const { Movie } = require("../models/movie");
 const auth = require("../middleware/auth");
+const getOrSetRedisCache = require("../middleware/redis")
 
 // Get all the rentals
-route.get("/", (req, res) => {
-  Rental.find()
-    .sort({ dateOut: -1, customer: 1, movie: 1 })
-    .then((result) => res.send(result));
+route.get("/", async(req, res) => {
+  const result = await getOrSetRedisCache("rentals", async () => {
+    const data = await Rental.find().sort({ dateOut: -1, customer: 1, movie: 1 });
+    return data;
+  });
+  res.send(result);
 });
 
 // Get single rental
-route.get("/:id", (req, res) => {
-  Rental.find({ _id: req.params.id }).then((result) => res.send(result));
+route.get("/:id", async(req, res) => {
+  const result = await getOrSetRedisCache("rentals", async () => {
+    const data = await Rental.find({ _id: req.params.id });
+    return data;
+  });
+  res.send(result);
 });
 
 // add a new rental
